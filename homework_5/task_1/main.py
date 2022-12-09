@@ -16,6 +16,14 @@ def player_vs_player():
     current_gamer = gamer_1 if current_gamer == gamer_2 else gamer_2
     print(f'Победил {current_gamer}')
 
+def f(x):
+    if  x < 29:
+        return 28
+    elif 28 < x < 57:
+        return x - 29
+    else:
+        return random.randint(1, 29)
+
 def player_vs_bot():
 
     count_of_sticks = 120
@@ -30,10 +38,9 @@ def player_vs_bot():
                 if 1 <=  number_to_delete <= 28:
                     break
             elif current_gamer == gamer_2:
-                number_to_delete = random.randint(1, 29)
+                number_to_delete = f(count_of_sticks)
                 print(f'ход игрока {current_gamer} (1 - 28): ', number_to_delete)
-                if 1 <= number_to_delete <= 28:
-                    break
+                break
         count_of_sticks -= number_to_delete
         current_gamer = gamer_2 if current_gamer == gamer_1 else gamer_1
     current_gamer = gamer_1 if current_gamer == gamer_2 else gamer_2
