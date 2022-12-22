@@ -1,4 +1,4 @@
-import requests, db, student, teacher
+import requests, student, teacher
 
 def main():
     flag = requests.change_menu()
