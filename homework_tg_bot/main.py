@@ -25,11 +25,9 @@ def filt_abv(update, context):
     context.bot.send_message(update.effective_chat.id, ' '.join(temp[1:]))
 
 def player_turn(update, context):
-    text = update.message.text
     context.bot.send_message(update.effective_chat.id, 'Ваш ход (1 - 28): ')
     return B
 def bot_turn(update, context):
-    text = update.message.text
     context.bot.send_message(update.effective_chat.id, 'Мой ход: (1 - 28)')
     return C
 
@@ -69,17 +67,13 @@ def game(update, context):
 
 
 start_handler = CommandHandler('start', start)
-dispatcher.add_handler(start_handler)
 game_handler = MessageHandler(Filters.text, game)
-dispatcher.add_handler(game_handler)
 player_turn_handler = MessageHandler(Filters.text, player_turn)
-dispatcher.add_handler(player_turn_handler)
 bot_turn_handler = MessageHandler(Filters.text, bot_turn)
-dispatcher.add_handler(bot_turn_handler)
 end_handler = CommandHandler('end', start)
 
 
-conv_handler = ConversationHandler(entry_points=[start],
+conv_handler = ConversationHandler(entry_points=[start_handler],
                                    states={A: [game_handler],
                                            B: [bot_turn_handler],
                                            C: [player_turn_handler]},
