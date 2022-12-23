@@ -28,6 +28,7 @@ def player_turn(update, context):
         context.bot.send_message(update.effective_chat.id, 'Введите что угодно что бы продолжить')
         return B
     else:
+        count_of_sticks = 120
         context.bot.send_message(update.effective_chat.id, 'Ты победил!')
         return D
 def bot_turn(update, context):
@@ -46,6 +47,7 @@ def bot_turn(update, context):
         context.bot.send_message(update.effective_chat.id, 'Введите число от 1 до 28')
         return C
     else:
+        count_of_sticks = 120
         context.bot.send_message(update.effective_chat.id, 'Я победил!')
         return D
 
