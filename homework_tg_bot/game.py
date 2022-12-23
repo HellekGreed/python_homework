@@ -61,7 +61,7 @@ def end(update, context):
 start_handler = CommandHandler('start', start)
 player_turn_handler = MessageHandler(Filters.text, player_turn)
 bot_turn_handler = MessageHandler(Filters.text, bot_turn)
-end_handler = CommandHandler('end', start)
+end_handler = CommandHandler('end', end)
 
 
 conv_handler = ConversationHandler(entry_points=[start_handler],
