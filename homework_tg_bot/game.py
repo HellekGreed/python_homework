@@ -10,7 +10,7 @@ dispatcher = updater.dispatcher
 A = 0
 B = 1
 C = 2
-D = 3
+
 count_of_sticks = 120
 
 def start(update, context):
@@ -30,7 +30,7 @@ def player_turn(update, context):
     else:
         count_of_sticks = 120
         context.bot.send_message(update.effective_chat.id, 'Ты победил!')
-        return D
+        return A
 def bot_turn(update, context):
     global count_of_sticks
     if count_of_sticks < 29:
@@ -49,7 +49,7 @@ def bot_turn(update, context):
     else:
         count_of_sticks = 120
         context.bot.send_message(update.effective_chat.id, 'Я победил!')
-        return D
+        return A
 
 def end(update, context):
     context.bot.send_message(update.effective_chat.id, 'END')
